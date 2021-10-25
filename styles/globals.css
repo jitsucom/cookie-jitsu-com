@@ -1,16 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Inter&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color-900: #500585;
+  --primary-color-500: #9c1ef6;
+  --primary-color-400: #b04bf8;
+  --primary-color-300: #bc66f9;
+  --primary-color-100: #e9cdfd;
+
+  --neutral-color-900: rgb(17, 24, 39);
+  --neutral-color-700: rgb(55, 65, 81);
+  --neutral-color-600: rgb(75, 85, 99);
+  --neutral-color-500: rgb(107, 114, 128);
+  --neutral-color-300: rgb(209, 213, 219);
+  --neutral-color-200: rgb(229, 231, 235);
+  --neutral-color-100: rgb(249, 250, 251);
+
+  --outline-success-color: #025b0e;
+  --outline-success-color-light: #40634;
+
+
+  --background-color: #ffffff;
+
+  --header-font: "Inter";
+  --text-font: "Inter";
+  --fonts-import: "https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Poppins&display=swap";
+}
+
+body {
+  font-family: var(--text-font), -apple-system, sans-serif;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+
+article a {
+  @apply transition-all duration-500;
+  text-decoration-color: var(--primary-color-900);
+  text-decoration: underline;
+  transition: background 0.5s;
+}
+
+article p {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+article a:hover {
+  background-color: var(--primary-color-500);
+  color: var(--background-color);
+  text-decoration-color: var(--primary-color-900);
+}
+
+article ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+article  ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+article ul ul, article  ol ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  margin-left: 15px;
+}
+article ol ol, article  ul ol {
+  list-style-type: lower-latin;
+  list-style-position: inside;
+  margin-left: 15px;
+}
+
+b {
+  font-weight: 600;
+}
+
+code {
+  line-height: normal;
+  background: var(--neutral-color-200);
+  color: var(--primary-color-900);
+  border-radius: 6px;
+  font-size: 85%;
+  padding: 0.2em 0.4em;
+}
+
+.root-container {
+  overflow-x: auto;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  height: 100vh;
+  width: 100vw;
+  min-width: 1000px;
+}
+
+#__next {
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+}
+
+.debug-border {
+  border: 1px solid red;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--neutral-color-100);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--header-font);
 }
 
-* {
-  box-sizing: border-box;
+.font-header {
+  font-family: var(--header-font);
+}
+
+.font-text {
+  font-family: var(--text-font);
+}
+
+h1 {
+  @apply text-5xl;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+h4 {
+  @apply text-xl;
 }

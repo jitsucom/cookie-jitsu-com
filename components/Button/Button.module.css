@@ -1,0 +1,41 @@
+.buttonDefaultPalette {
+  @apply text-neutral-100;
+  background: linear-gradient(90deg, var(--primary-color-500), var(--primary-color-400));
+  box-shadow: var(--primary-color-100) 0px 4px 14px 0px;
+}
+
+.buttonTransparent {
+  @apply border-2 border-neutral-500 text-neutral-900;
+}
+
+.buttonTransparent.buttonDisabled {
+  @apply border-neutral-300 text-neutral-300;
+}
+
+.buttonTransparent.buttonDisabled:hover {
+  @apply border-neutral-300 text-neutral-300;
+
+}
+
+.buttonTransparent:hover {
+  @apply border-primary-500
+}
+
+.buttonShape {
+  @apply text-center px-6 py-3 rounded-xl  text-lg;
+  user-select: none;
+  font-weight: 500;
+}
+
+.buttonDefaultPalette.buttonDisabled,
+.buttonDefaultPalette.buttonDisabled:hover {
+  background: var(--primary-color-500);
+}
+
+.buttonDefaultPalette.buttonDisabled {
+  color: var(--neutral-color-300);
+}
+
+.buttonDefaultPalette.buttonShape:hover {
+  background: linear-gradient(90deg, var(--primary-color-900), var(--primary-color-900));
+}

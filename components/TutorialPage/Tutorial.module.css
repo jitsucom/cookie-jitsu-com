@@ -1,0 +1,32 @@
+.slideBullets ul {
+}
+
+.slideBullets {
+    @apply pl-16 text-2xl;
+}
+
+.sectionHeader {
+    @apply text-center text-xl py-5 rounded-xl  uppercase border-b border-primary-900;
+}
+
+.regulation {
+    @apply text-center;
+}
+
+.regulation > span {
+    @apply bg-primary-500 text-lg text-neutral-100 px-2 py-1 inline-block rounded-lg;
+}
+
+.regulation {
+    @apply pt-6 pb-3;
+}
+
+.comparison td:first-child {
+    @apply text-neutral-500 text-right py-3 pr-8 font-semibold text-sm;
+    vertical-align: top;
+}
+
+.comparison td:not(:first-child) {
+    @apply py-3 px-3;
+    vertical-align: top;
+}

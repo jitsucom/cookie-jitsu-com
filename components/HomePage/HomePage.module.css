@@ -1,0 +1,9 @@
+.highlight {
+  @apply whitespace-nowrap;
+  background: linear-gradient(90deg, var(--primary-color-500), var(--primary-color-300));
+  background-size: 100% 18px;
+  background-repeat: no-repeat;
+  padding: 0 2px;
+  background-position: bottom;
+  background-color: transparent;
+}

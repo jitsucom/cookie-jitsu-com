@@ -1,0 +1,16 @@
+.geoRow {
+    @apply flex items-center;
+}
+
+
+.geoField {
+    @apply font-semibold text-neutral-500 text-lg w-96 text-right pr-4 w-1/2;
+}
+
+.geoValue {
+    @apply text-xl flex-grow  w-1/2 pl-4 flex items-center;
+}
+
+.flag {
+    @apply text-3xl pl-1;
+}
