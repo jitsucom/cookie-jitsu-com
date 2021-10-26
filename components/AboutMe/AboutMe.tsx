@@ -7,6 +7,12 @@ export const aboutMeProps: PageProps = {
   title: "About author",
 }
 
+function AnalyticsStack({children}) {
+  return <div className="pt-1">
+    <b>📈 Analytics Stack: </b> {children}
+  </div>
+}
+
 export function AboutMe() {
   return (
     <div>
@@ -19,7 +25,7 @@ export function AboutMe() {
               <a href="https://github.com/vklimontovich">
                 <BsGithub />
               </a>
-              <a href="https://twitter.com/vklimontivich">
+              <a href="https://twitter.com/vl_klmn">
                 <BsTwitter />
               </a>
               <a href="https://linkedin.com/in/klimontovich">
@@ -34,6 +40,7 @@ export function AboutMe() {
                 Founder & CEO at <a href="https://jitsu.com">Jitsu (YC S20)</a>
               </span>
               . We{"'"}re open-source data ingestion platform with strong focus on realtime.
+              <AnalyticsStack>Jitsu, Postgres, DBT, Metabase, Prometheus, Grafana</AnalyticsStack>
             </div>
             <div className="text-neutral-500">Before</div>
             <div className={styles.careerItem}>
@@ -41,10 +48,23 @@ export function AboutMe() {
                 Founder & CTO at <a href="https://getintent.com">GetIntent</a>
               </span>
               . GetIntent is an online advertising platform. Built a platform processing up to 1M reqs per second.
+              <AnalyticsStack>Hadoop MapReduce, HDFS, ClickHouse, Graphite, Grafana</AnalyticsStack>
             </div>
             <div className={styles.careerItem}>
-              <span className={styles.careerTitle}>Engineer at <a href="https://www.iponweb.com">IPONWEB</a></span>. Built first version of{" "}
-              <a href="https://www.iponweb.com/technology/">u-Audience</a>, a user data management platform
+              <span className={styles.careerTitle}>
+                Engineer at <a href="https://www.iponweb.com">IPONWEB</a>
+              </span>
+              . Built first version of <a href="https://www.iponweb.com/technology/">u-Audience</a>, a user data
+              management platform
+              <AnalyticsStack>Hadoop Map-reduce / HDFS, HBase, Graphite</AnalyticsStack>
+            </div>
+            <div className={styles.careerItem}>
+              <span className={styles.careerTitle}>
+                Engineer at <a href="https://www.iponweb.com">PulsePoint</a>
+              </span>
+              . Built first version of <a href="https://www.iponweb.com/technology/">u-Audience</a>, a user data
+              management platform
+              <AnalyticsStack>Hadoop Map-reduce / HDFS, HBase</AnalyticsStack>
             </div>
           </article>
         </div>

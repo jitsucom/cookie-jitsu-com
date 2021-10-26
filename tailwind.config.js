@@ -1,17 +1,3 @@
-const colors = require("tailwindcss/colors")
-
-function makeColors(...colors) {
-  let pallete = colors.reduce((obj, color) => {
-    return {
-      ...obj,
-      [color.replaceAll('-color', '')]: { DEFAULT: `var(--${color})` },
-    }
-  }, {});
-  console.log('Made colors', pallete)
-
-  return pallete;
-}
-
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class", // or 'media' or 'class'
@@ -33,29 +19,57 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      ...makeColors(
-        "primary-color-900",
-        "primary-color-500",
-        "primary-color-300",
 
-        "neutral-color-900",
-        "neutral-color-500",
-        "neutral-color-700",
-        "neutral-color-600",
-        "neutral-color-500",
-        "neutral-color-300",
-        "neutral-color-200",
-        "neutral-color-100",
+      "neutral-100": {
+        DEFAULT: "var(--neutral-color-100)",
+      },
+      "neutral-200": {
+        DEFAULT: "var(--neutral-color-200)",
+      },
+      "neutral-300": {
+        DEFAULT: "var(--neutral-color-300)",
+      },
+      "neutral-500": {
+        DEFAULT: "var(--neutral-color-500)",
+      },
+      "neutral-600": {
+        DEFAULT: "var(--neutral-color-600)",
+      },
+      "neutral-700": {
+        DEFAULT: "var(--neutral-color-700)",
+      },
+      "neutral-900": {
+        DEFAULT: "var(--neutral-color-900)",
+      },
 
-        "outline-success-color",
-        "outline-success-color-light"
-      )
+      "primary-900": {
+        DEFAULT: "var(--primary-color-900)",
+      },
+      "primary-500": {
+        DEFAULT: "var(--primary-color-500)",
+      },
+      "primary-400": {
+        DEFAULT: "var(--primary-color-400)",
+      },
+      "primary-300": {
+        DEFAULT: "var(--primary-color-300)",
+      },
+      "primary-100": {
+        DEFAULT: "var(--primary-color-100)",
+      },
+
+      "outline-success": {
+        DEFAULT: "var(--outline-success-color)",
+      },
+      "outline-success-light": {
+        DEFAULT: "var(----outline-success-color-light)",
+      },
     },
-    variants: {
-      display: ["responsive", "group-hover", "group-focus"],
-      cursor: ["hover", "focus"],
-      border: ["hover"],
-    },
-    plugins: [require("@tailwindcss/typography")],
   },
+  variants: {
+    display: ["responsive", "group-hover", "group-focus"],
+    cursor: ["hover", "focus"],
+    border: ["hover"],
+  },
+  plugins: [],
 }
