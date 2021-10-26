@@ -41,6 +41,7 @@ function download(url, dest) {
 }
 
 ;(async function () {
+  console.log("Running pre-build script. Env: ", process.env)
   if (!process.env.MAXMIND_KEY) {
     console.warn("MAXMIND_KEY is not set. Maxmind files won't be downloaded")
   } else {

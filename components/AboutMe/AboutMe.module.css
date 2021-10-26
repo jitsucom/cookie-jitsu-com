@@ -1,11 +1,11 @@
 .careerItem {
-    @apply text-lg text-neutral-500 py-3
+    @apply text-lg text-neutral-500 py-3;
 }
 
 .socialLinks a:hover {
     @apply text-neutral-700;
 }
 .careerItem .careerTitle {
-    @apply text-2xl text-neutral-900
+    @apply text-2xl text-neutral-900;
 }
 
