@@ -1,6 +1,7 @@
 import { inspect } from "util"
 import styles from "./RegulationsOverview.module.css"
 import { ReactNode } from 'react'
+import Image from 'next/image'
 
 type CardProps = {
   gdpPercent: ReactNode

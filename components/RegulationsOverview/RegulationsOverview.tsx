@@ -53,7 +53,7 @@ export function RegulationsOverviewUpcoming() {
               <>
                 California, US
                 <br />
-                <i>(takes affect at 1/1/21)</i>
+                <i>(takes affect at 1/1/23)</i>
               </>
             }
           />

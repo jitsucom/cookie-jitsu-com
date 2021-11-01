@@ -2,7 +2,7 @@
 }
 
 .slideBullets {
-    @apply pl-16 text-2xl;
+    @apply pl-16 text-3xl;
 }
 
 .sectionHeader {

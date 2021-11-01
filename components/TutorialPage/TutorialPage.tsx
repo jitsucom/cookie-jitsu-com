@@ -2,42 +2,38 @@ import { ReactNode, useEffect, useState } from "react"
 import { emptyTemplate, PageProps } from "../../lib/page"
 import { Slide } from "./Slide"
 import styles from "./Tutorial.module.css"
-
+import Image from "next/image"
 import { useRouter } from "next/router"
 import { UserState } from "./UserState"
 import { RegulationsOverview, RegulationsOverviewUpcoming } from "../RegulationsOverview/RegulationsOverview"
 import { CcpaGdprComparison } from "./CcpaGdprComparison"
 import { ExcalidrawViewer } from "../Excalidraw/Excalidraw"
 import { Ellipsis } from "../Ellipsis/Ellipsis"
-import { Footer } from '../Footer/Footer'
+import { Footer } from "../Footer/Footer"
+import algo from "../../public/img/algo.png"
 
 const slides: SlideDefinition[] = [
   {
-    title: "Two types of tracked users",
-    component: <UserState />,
-    description: (
-      <article className="prose">
-        <p>
-          Typically, user journey of each service is very simple. When the user first visits the landing page or opens
-          the app we don{"'"}t know much about her. The user is <b>anonymous</b>. User rights is governed by common
-          laws.
-        </p>
-        <p>
-          Some of the <i>anonymous</i> users will eventually sign up for the service. At some point during the sign up
-          flow user will agree to Terms of Services and/or Privacy Policy and will become <b>registered user</b>. After
-          that moment your relationship with the user is governed by those documents. It
-          {"'"}s unlikely you could put anything to ToS or Privacy Policy. However, things such as tracking
-        </p>
-
-        <p>
-          This tutorial explains the tracking of <i>anonymous</i> users. What you can put into ToS/Privacy policy should
-          be a separate topic
-        </p>
+    title: "What is GDPR?",
+    component: (
+      <article className={styles.slideBullets}>
+        <ul>
+          <li>GDPR stands for General Data Protection Regulation</li>
+          <li>It{"'"}s 🇪🇺 EU law that was adopted in 2016 and came into effect in 2019</li>
+          <li>Among other things, GDPR tells you what kind of data app developers can and cannot collect about user</li>
+          <li>
+            GDPR started a chain reaction, other countries adopting similar policies. Other names you might seen DLA,
+            CCPA, PECR
+          </li>
+          <li>
+            Have you seen Accept all/Reject All {'"'}cookie banners{'"'}? That{"'"} GDPR!
+          </li>
+        </ul>
       </article>
     ),
   },
   {
-    title: "Regulations Overview",
+    title: "Current Regulations",
     component: <RegulationsOverview />,
   },
   {
@@ -62,6 +58,31 @@ const slides: SlideDefinition[] = [
     ),
   },
   {
+    title: "Who are we tracking?",
+    component: <UserState />,
+    description: (
+      <article className="prose">
+        <p>
+          Typically, user journey of each service is very simple. When the user first visits the landing page or opens
+          the app we don{"'"}t know much about her. The user is <b>anonymous</b>. User rights is governed by common
+          laws.
+        </p>
+        <p>
+          Some of the <i>anonymous</i> users will eventually sign up for the service. At some point during the sign up
+          flow user will agree to Terms of Services and/or Privacy Policy and will become <b>registered user</b>. After
+          that moment your relationship with the user is governed by those documents. It
+          {"'"}s unlikely you could put anything to ToS or Privacy Policy. However, things such as tracking
+        </p>
+
+        <p>
+          This tutorial explains the tracking of <i>anonymous</i> users. What you can put into ToS/Privacy policy should
+          be a separate topic
+        </p>
+      </article>
+    ),
+  },
+
+  {
     title: "CCPA and GDPR",
     component: <CcpaGdprComparison />,
   },
@@ -69,7 +90,7 @@ const slides: SlideDefinition[] = [
     title: "The ultimate algorithm",
     component: (
       <div className="flex justify-center" style={{ height: "50vh" }}>
-        <img className="h-full" src="/img/algo.png" />
+        <Image className="h-full" src={algo} />
       </div>
     ),
   },
@@ -85,15 +106,14 @@ const slides: SlideDefinition[] = [
             Short answer: <u>yes we can</u> *
           </li>
         </ul>
-        <div className="mt-12 text-neutral-600">* — consult your legal council</div>
+        <div className="mt-12 text-neutral-600">* — but consult your legal counsel</div>
       </article>
     ),
     description: (
       <article>
         Why we can?
         <ul>
-          <li>That{"'"}s what Facebook / Google does</li>
-          <li>Legal reference</li>
+          <li>That{"'"}s what Facebook / Google does (you can reverse engineer that with VPN).</li>
         </ul>
       </article>
     ),
@@ -142,7 +162,7 @@ const slides: SlideDefinition[] = [
           <li>
             Most businesses should allow to opt-out from marketing cookies (aka {'"'}do not sell my data{'"'})
           </li>
-          <li>Consult you legal council!</li>
+          <li>Consult you legal counsel!</li>
         </ul>
         <p className="text-xl text-neutral-600">
           * — see{" "}
@@ -154,47 +174,12 @@ const slides: SlideDefinition[] = [
     ),
   },
   {
-    title: "IP address",
+    title: <>Can we record IP address?</>,
     component: (
       <article className={styles.slideBullets}>
         <ul>
           <li>
-            <Ellipsis title={<>IP address is a personal information, CCPA</>}>
-              Quote from <a href="https://cdp.cooley.com/ccpa-2018/">CCPA</a>:{" "}
-              <i>
-                {'"'}Personal Information{'"'} means information that identifies, relates to, describes, is reasonably
-                capable of being associated with, or could reasonably be linked, directly or indirectly, with a
-                particular consumer or household. Personal information includes, but is not limited to [...] identifiers
-                such as a real name, alias, postal address, unique personal identifier, online identifier,{" "}
-                <u>internet protocol</u>
-                address, email address, account name, social security number, driver’s license number, passport number,
-                or other similar identifiers.{" "}
-              </i>
-            </Ellipsis>
-          </li>
-          <li>
-            Instead IP address you can collect first 3 octets <code>195.91.157.21 → 195.91.157.0</code>. It{"'"}s enough
-            for geo-locating user (up to city precision)
-          </li>
-          <li>You can record IP address for security purposes (check with Leonard)</li>
-          <li>Consult you legal council!</li>
-        </ul>
-        <p className="text-xl text-neutral-600">
-          * — see{" "}
-          <a href="https://ccpa-info.com/wp-content/uploads/2019/08/Handbook-of-FAQs-Cookies.pdf">
-            ccpa-info.com Handbook
-          </a>
-        </p>
-      </article>
-    ),
-  },
-  {
-    title: <>IP address</>,
-    component: (
-      <article className={styles.slideBullets}>
-        <ul>
-          <li>
-            IP is a personal information in both CCPA
+            IP is a personal information in both
             <Ellipsis title={<>CCPA</>}>
               Quote from <a href="https://cdp.cooley.com/ccpa-2018/">CCPA</a>:{" "}
               <i>
@@ -226,25 +211,29 @@ const slides: SlideDefinition[] = [
             for geo-locating user (up to city precision)
           </li>
           <li>You can record IP address for security purposes (check with Leonard)</li>
-          <li>Consult you legal council!</li>
+          <li>Consult you legal counsel!</li>
         </ul>
       </article>
     ),
   },
   {
-    title: <>Alternative Methods</>,
+    title: <>Alternative Methods of User ID</>,
     component: (
       <>
         <article className={styles.slideBullets}>
+          <p>
+            What of we haven{"'"} received a consent from user or decided not not to ask? That{"'"}s what we can use as
+            id
+          </p>
           <ul>
-            <li>
-              <code>hash(ip + user_agent)</code>
-            </li>
             <li>
               <code>hash(ip + user_agent + salt)</code>. <code>salt</code> is recycled on daily basis
             </li>
             <li>
-              <code>hash(first_3octets(ip) + user_agent)</code>. <code>salt</code> is recycled on daily basis
+              <code>hash(ip + user_agent)</code>
+            </li>
+            <li>
+              <code>hash(first_3octets(ip) + user_agent)</code>.
             </li>
           </ul>
         </article>
@@ -262,12 +251,34 @@ const slides: SlideDefinition[] = [
         <article className={styles.slideBullets}>
           <ul>
             <li>
-              Accuracy: <code>90%</code>
+              Accuracy: <code>93.6%</code> (excluding bots), within one day
             </li>
             <li>Can do: daily uniques, daily uniques per pages, etc</li>
             <li>Can{"'"}t do: conversion attribution, cohort analysis</li>
-            <li>Fine with GDPR and CCPA</li>
-            <li>Used by plausible.io (open-source analytics), Fathom (privacy focused analytics)</li>
+            <li>Ok with GDPR and CCPA</li>
+            <li>
+              Used by <a href="https://plausible.io">plausible.io</a> (privacy focused open-source analytics),{" "}
+              <a href="https://usefathom.com">Fathom</a> (privacy focused analytics)
+            </li>
+          </ul>
+        </article>
+      </>
+    ),
+  },
+  {
+    title: (
+      <>
+        <code>hash(ip + user_agent)</code>
+      </>
+    ),
+    component: (
+      <>
+        <article className={styles.slideBullets}>
+          <ul>
+            <li>
+              Accuracy: <code>93.6%</code> (excluding bots)
+            </li>
+            <li>Gray area with GDPR and CCPA</li>
           </ul>
         </article>
       </>
@@ -284,7 +295,7 @@ const slides: SlideDefinition[] = [
         <article className={styles.slideBullets}>
           <ul>
             <li>
-              Accuracy: <code>90%</code>
+              Accuracy: <code>92.7%</code> (excluding bots)
             </li>
             <li>Probably ok with GDPR</li>
           </ul>
@@ -293,46 +304,20 @@ const slides: SlideDefinition[] = [
     ),
   },
   {
-    title: (
-      <>
-        <code>hash(ip + user_agent)</code>
-      </>
-    ),
-    component: (
-      <>
-        <article className={styles.slideBullets}>
-          <ul>
-            <li>
-              Accuracy: <code>90%</code>
-            </li>
-            <li>Questionable with GDPR and CCPA</li>
-          </ul>
-        </article>
-      </>
-    ),
-  },
-  {
-    title: (
-      <>
-        <code>hash(ip + user_agent)</code>
-      </>
-    ),
-    component: (
-      <>
-        <article className={styles.slideBullets}>
-          <ul>
-            <li>
-              Accuracy: <code>90%</code>
-            </li>
-            <li>Questionable with GDPR and CCPA</li>
-          </ul>
-        </article>
-      </>
-    ),
-  },
-  {
     title: <>Conclusion</>,
-    component: <></>,
+    component: (
+      <>
+        <article className={styles.slideBullets}>
+          <ul>
+            <li>
+              Don{"'"}t show cookie banner everywhere! You don{"'"}t need to*, and it{"'"}s a bad user experience
+            </li>
+            <li>If user didn{"'"}t consent to cookies (or you decided not to ask), you still can collect some data!</li>
+          </ul>
+          <div className="mt-12 text-neutral-600">* — consult your legal counsel</div>
+        </article>
+      </>
+    ),
   },
 ]
 
@@ -389,7 +374,9 @@ export function TutorialPage() {
           {currentSlide.component}
         </Slide>
       </div>
-      <div><Footer /></div>
+      <div>
+        <Footer />
+      </div>
     </div>
   )
 }
