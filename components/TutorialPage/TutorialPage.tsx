@@ -22,11 +22,11 @@ const slides: SlideDefinition[] = [
           <li>It{"'"}s 🇪🇺 EU law that was adopted in 2016 and came into effect in 2019</li>
           <li>Among other things, GDPR tells you what kind of data app developers can and cannot collect about user</li>
           <li>
-            GDPR started a chain reaction, other countries adopting similar policies. Other names you might seen DLA,
-            CCPA, PECR
+            GDPR started a chain reaction, other countries adopting similar policies. Other acronyms you might have heard already: DLA,
+            CCPA, PECR, NYPC
           </li>
           <li>
-            Have you seen Accept all/Reject All {'"'}cookie banners{'"'}? That{"'"} GDPR!
+            Have you seen <i>Accept all/Reject All</i> banners on websites? That{"'"} GDPR!
           </li>
         </ul>
       </article>
@@ -90,7 +90,7 @@ const slides: SlideDefinition[] = [
     title: "The ultimate algorithm",
     component: (
       <div className="flex justify-center" style={{ height: "50vh" }}>
-        <Image className="h-full" src={algo} />
+        <Image src={algo} objectFit={"contain"} />
       </div>
     ),
   },
@@ -210,7 +210,7 @@ const slides: SlideDefinition[] = [
             Instead IP address you can collect first 3 octets <code>195.91.157.21 → 195.91.157.0</code>. It{"'"}s enough
             for geo-locating user (up to city precision)
           </li>
-          <li>You can record IP address for security purposes (check with Leonard)</li>
+          <li>You can record IP address for security purposes</li>
           <li>Consult you legal counsel!</li>
         </ul>
       </article>
@@ -337,29 +337,45 @@ export function TutorialPage() {
   const { s: initialSlide = "0" } = router.query
   let initialSlideIndex = parseInt(Array.isArray(initialSlide) ? initialSlide[0] : initialSlide)
   const [slideIndex, setSlideIndex] = useState<number>(initialSlideIndex)
-  useEffect(() => {
-    setSlideIndex(initialSlideIndex)
-  }, [initialSlideIndex])
   const nextSlide = () => {
-    setSlideIndex(slideIndex + 1)
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        s: slideIndex + 1,
-      },
-    })
+    if (slideIndex < slides.length - 1) {
+      setSlideIndex(slideIndex + 1)
+      router.push({
+        pathname: router.pathname,
+        query: {
+          ...router.query,
+          s: slideIndex + 1,
+        },
+      })
+    }
   }
   const prevSlide = () => {
-    setSlideIndex(slideIndex - 1)
-    router.push({
-      pathname: router.pathname,
-      query: {
-        ...router.query,
-        s: slideIndex - 1,
-      },
-    })
+    if (slideIndex > 0) {
+      setSlideIndex(slideIndex - 1)
+      router.push({
+        pathname: router.pathname,
+        query: {
+          ...router.query,
+          s: slideIndex - 1,
+        },
+      })
+    }
   }
+
+  const keyPress = e => {
+    console.log(e.key)
+    if (e.key === "ArrowRight") {
+      nextSlide()
+    } else if (e.key === "ArrowLeft") {
+      prevSlide()
+    }
+  }
+  useEffect(() => {
+    setSlideIndex(initialSlideIndex)
+    document.addEventListener("keydown", keyPress)
+    return () => document.removeEventListener("keydown", keyPress)
+  }, [initialSlideIndex, keyPress])
+
   let currentSlide = slides[slideIndex]
   return (
     <div className="flex flex-col justify-between h-full">

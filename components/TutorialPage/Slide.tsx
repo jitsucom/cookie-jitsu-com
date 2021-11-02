@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode, useEffect, useState } from "react"
 import { Button } from "../Button/Button"
 import { ReadMore } from "./ReadMore"
 
@@ -12,13 +12,21 @@ type SlideProps = {
   totalSlides: number
 }
 
+export function FadeIn({ children }) {
+  const [opacityStyle, setOpacityStyle] = useState("opacity-0")
+  useEffect(() => {
+    setTimeout(() => setOpacityStyle('opacity-100'), 0)
+  })
+  return <div className={`${opacityStyle} transition-all duration-1000`}>{children}</div>
+}
+
 export function Slide(props: SlideProps) {
   let dividerHeight = {
     minHeight: "1px",
     height: "1px",
   }
   return (
-    <div className="px-12 py-5 h-full flex flex-col justify-between">
+    <div className={`px-12 py-5 h-full flex flex-col justify-between`}>
       <div>
         <div className="flex justify-between mb-4 pb-1 items-center">
           <div>
@@ -47,11 +55,13 @@ export function Slide(props: SlideProps) {
             }}
           />
         </div>
-        <h1 className="text-center">{props.title}</h1>
-        <div className="max-w-7xl flex flex-col items-center pb-12" style={{ margin: "auto" }}>
-          <div className="mb-12 mt-12 w-full">{props.children}</div>
-          {props.description && <ReadMore>{props.description}</ReadMore>}
-        </div>
+        <FadeIn key={Math.random()}>
+          <h1 className="text-center">{props.title}</h1>
+          <div className="max-w-7xl flex flex-col items-center pb-12" style={{ margin: "auto" }}>
+            <div className="mb-12 mt-12 w-full">{props.children}</div>
+            {props.description && <ReadMore>{props.description}</ReadMore>}
+          </div>
+        </FadeIn>
       </div>
     </div>
   )

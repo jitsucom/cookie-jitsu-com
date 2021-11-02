@@ -7,10 +7,12 @@ export const aboutMeProps: PageProps = {
   title: "About author",
 }
 
-function AnalyticsStack({children}) {
-  return <div className="pt-1">
-    <b>📈 Analytics Stack: </b> {children}
-  </div>
+function AnalyticsStack({ children }) {
+  return (
+    <div className="pt-1">
+      <b>📈 Analytics Stack: </b> {children}
+    </div>
+  )
 }
 
 export function AboutMe() {
@@ -47,8 +49,9 @@ export function AboutMe() {
               <span className={styles.careerTitle}>
                 Founder & CTO at <a href="https://getintent.com">GetIntent</a>
               </span>
-              . GetIntent is an online advertising platform. Built a platform processing up to 1M reqs per second.
-              <AnalyticsStack>Hadoop MapReduce, HDFS, ClickHouse, Graphite, Grafana</AnalyticsStack>
+              . GetIntent is an online advertising platform. I created a platform capable of processing
+              up to 1M reqs per second.
+              <AnalyticsStack>Hadoop MapReduce, HDFS, ClickHouse, Postgres, Graphite, Grafana</AnalyticsStack>
             </div>
             <div className={styles.careerItem}>
               <span className={styles.careerTitle}>
@@ -60,16 +63,16 @@ export function AboutMe() {
             </div>
             <div className={styles.careerItem}>
               <span className={styles.careerTitle}>
-                Engineer at <a href="https://www.iponweb.com">PulsePoint</a>
+                Software Engineer at <a href="https://www.iponweb.com">PulsePoint</a>
               </span>
-              . Built first version of <a href="https://www.iponweb.com/technology/">u-Audience</a>, a user data
-              management platform
+              . Built a data pipeline processing with Apache Hadoop. I also worked on ML tool that predicted clicks on
+              online ads
               <AnalyticsStack>Hadoop Map-reduce / HDFS, HBase</AnalyticsStack>
             </div>
           </article>
         </div>
       </div>
-      <div className="flex justify-center pt-12">
+      <div className="flex justify-center pt-12 pb-12">
         <Button action="/slides">View Presentation →</Button>
       </div>
     </div>

@@ -8,7 +8,7 @@ type MenuItem = {
 }
 
 const menu: MenuItem[] = [
-  { title: "Check IP", action: "/iptool" },
+  // { title: "Check IP", action: "/iptool" },
   { title: "Slides", action: "/slides" },
   { title: "About", action: "/about" },
 ]

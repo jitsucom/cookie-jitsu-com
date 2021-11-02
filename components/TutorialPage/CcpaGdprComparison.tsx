@@ -38,7 +38,7 @@ export function CcpaGdprComparison() {
       <tr className={styles.comparison}>
         <td>Who should comply?</td>
         <td>
-          <b>Any company having users in UE</b>
+          <b>Any company having users in EU</b>
         </td>
         <td>
           <b>Large companies</b> <i className="text-neutral-600">(any for-profit entity doing business in CA and making {">"}$25M or has {">"}50k MAU, or makes {">"}50% of
@@ -72,10 +72,10 @@ export function CcpaGdprComparison() {
       <tr className={styles.comparison}>
         <td>Consent</td>
         <td>
-          <b>Opt-out</b>. You can start collecting data right-away, should give a user an option to opt-out
+          <b>Opt-in</b>. You should ask user first
         </td>
         <td>
-          <b>Opt-in</b>. You should ask user first
+          <b>Opt-out</b>. You can start collecting data right-away, should give a user an option to opt-out
         </td>
       </tr>
     </table>
