@@ -5,6 +5,7 @@ import { emptyTemplate, PageProps, PageTemplate } from "../lib/page"
 import React, { ReactElement, ReactNode, useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { jitsuClient } from "@jitsu/sdk-js"
+import Head from 'next/head'
 
 const defaultTemplate: PageTemplate = (component: ReactElement) => {
   return (
@@ -57,7 +58,13 @@ function CookieJitsu({ Component, pageProps }) {
   let page = pageProps as PageProps
   let template = page.withoutTemplate ? emptyTemplate : defaultTemplate
   return (
+
     <div className="root-container">
+      <Head>
+        <title>Cookie Policy for engineers</title>
+        <link rel="icon" key="ic-32" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" key="ic-64" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      </Head>
       <NotMobileFriendlyBanner />
       {template(<Component {...pageProps} />)}
     </div>

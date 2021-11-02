@@ -128,7 +128,7 @@ const slides: SlideDefinition[] = [
             <b>Strictly necessary cookies</b>. Session id etc
           </li>
           <li>
-            <b>Preferences cookies</b>. Example dark/light theme
+            <b>Preferences cookies</b>. Example - dark/light theme
           </li>
           <li>
             <b>
@@ -137,7 +137,7 @@ const slides: SlideDefinition[] = [
             . Product analytics
           </li>
           <li>
-            <b>Marketing cookies</b>. To show more relevant ad
+            <b>Marketing cookies</b>. To show more relevant ad on other apps/sites
           </li>
         </ul>
         <p>
