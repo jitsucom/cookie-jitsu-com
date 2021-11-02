@@ -7,7 +7,7 @@ export function Footer() {
         &copy; Jitsu Labs, Inc. Jitsu is an open-source data ingestion engine. Read more at{" "}
         <a href="https://jitsu.com">jitsu.com</a>. This website does not contain a legal advice!
       </article>
-        <a href="https://github.com/jitsu/cookie-jitsu-com" className="flex items-center space-x-2 hover:text-neutral-700">
+        <a href="https://github.com/jitsucom/cookie-jitsu-com" className="flex items-center space-x-2 hover:text-neutral-700">
           <BsGithub />
           <div>src</div>
         </a>
