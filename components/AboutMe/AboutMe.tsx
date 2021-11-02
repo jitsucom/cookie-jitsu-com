@@ -20,7 +20,7 @@ export function AboutMe() {
     <div>
       <div className="justify-center flex">
         <div className="max-w-7xl flex-grow px-12">
-          <h1>About Me</h1>
+          <h1>About Author</h1>
           <div className="text-neutral-500 -mt-3 flex items-center">
             <div className="pr-4">Vladimir Klimontovich</div>
             <div className={`flex items-center space-x-3 ${styles.socialLinks}`}>
